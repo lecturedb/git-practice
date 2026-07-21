@@ -1,18 +1,146 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Git Practice</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <h1>Git Practice Page</h1>
-    <p>This is a simple HTML page for practicing Git commands.</p>
-    <p>GitHub 와 함께 프로젝트를 관리합니다.</p>
-    <p>GitHub에서 새로운 문장을 추가했습니다.</p>
-    <p>협업자가 추가한 문장입니다.</p>
-    <p>협업자가 한 번 더 추가한 문장입니다.</p>
-    <a href="about.html">About Us</a>
-    <script src="main.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Practice Guide</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <p class="eyebrow">GITHUB PRACTICE</p>
+      <h1>수정부터 배포까지<br>GitHub 작업 흐름 한눈에 보기</h1>
+      <p class="hero-description">
+        프로젝트의 변경 사항을 기록하고 공유하며,
+        GitHub Pages로 웹사이트를 공개하는 과정을 연습합니다.
+      </p>
+      <a class="primary-button" href="#workflow">작업 흐름 살펴보기</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container" id="workflow">
+      <div class="section-heading">
+        <p class="section-label">BASIC WORKFLOW</p>
+        <h2>로컬 작업에서 GitHub까지</h2>
+        <p>파일을 수정한 뒤 변경 사항을 기록하고 원격 저장소에 올리는 기본 흐름입니다.</p>
+      </div>
+
+      <div class="workflow-grid">
+        <article class="workflow-card active" data-step="1">
+          <span class="step-number">01</span>
+          <h3>파일 수정</h3>
+          <p>HTML, CSS, JavaScript 파일에서 필요한 내용을 변경합니다.</p>
+        </article>
+        <article class="workflow-card" data-step="2">
+          <span class="step-number">02</span>
+          <h3>변경 확인</h3>
+          <p><code>git status</code>와 <code>git diff</code>로 달라진 내용을 확인합니다.</p>
+        </article>
+        <article class="workflow-card" data-step="3">
+          <span class="step-number">03</span>
+          <h3>커밋 기록</h3>
+          <p>변경 사항을 스테이징하고 하나의 커밋으로 기록합니다.</p>
+        </article>
+        <article class="workflow-card" data-step="4">
+          <span class="step-number">04</span>
+          <h3>GitHub로 Push</h3>
+          <p>로컬 커밋을 원격 저장소에 올려 다른 사람과 공유합니다.</p>
+        </article>
+      </div>
+
+      <div class="step-panel" aria-live="polite">
+        <p class="step-panel-label">현재 단계</p>
+        <h3 id="step-title">파일 수정</h3>
+        <p id="step-description">프로젝트 파일을 열고 필요한 내용을 수정한 뒤 저장합니다.</p>
+        <button type="button" class="secondary-button" id="next-step">다음 단계 보기</button>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">COMMANDS</p>
+          <h2>반복해서 사용하는 기본 명령어</h2>
+          <p>명령어를 누르면 클립보드에 복사할 수 있습니다.</p>
+        </div>
+
+        <div class="command-list">
+          <button class="command-item" type="button" data-command="git status">
+            <code>git status</code>
+            <span>현재 변경 상태 확인</span>
+          </button>
+          <button class="command-item" type="button" data-command="git add .">
+            <code>git add .</code>
+            <span>변경 파일 스테이징</span>
+          </button>
+          <button class="command-item" type="button" data-command='git commit -m "Update project"'>
+            <code>git commit -m "Update project"</code>
+            <span>변경 사항 커밋</span>
+          </button>
+          <button class="command-item" type="button" data-command="git push">
+            <code>git push</code>
+            <span>GitHub 저장소에 전송</span>
+          </button>
+        </div>
+
+        <p class="copy-message" id="copy-message" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="section-heading">
+        <p class="section-label">COLLABORATION</p>
+        <h2>혼자 만든 프로젝트를 함께 관리하는 흐름</h2>
+      </div>
+
+      <div class="flow-line" aria-label="브랜치, Pull Request, 검토, 병합 순서">
+        <span>브랜치</span>
+        <b>→</b>
+        <span>Pull Request</span>
+        <b>→</b>
+        <span>검토</span>
+        <b>→</b>
+        <span>병합</span>
+      </div>
+    </section>
+
+    <section class="section deploy-section">
+      <div class="container deploy-layout">
+        <div>
+          <p class="section-label">DEPLOYMENT</p>
+          <h2>저장소를 넘어 실제 웹사이트로</h2>
+          <p>
+            GitHub Pages를 설정하면 저장소에 담긴 HTML 프로젝트를
+            누구나 접속할 수 있는 웹사이트로 공개할 수 있습니다.
+          </p>
+        </div>
+
+        <dl class="project-status">
+          <div>
+            <dt>Repository</dt>
+            <dd>git-practice</dd>
+          </div>
+          <div>
+            <dt>Branch</dt>
+            <dd>main</dd>
+          </div>
+          <div>
+            <dt>Deployment</dt>
+            <dd><span class="status-dot"></span>GitHub Pages</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>GitHub Practice Guide · Learn, Commit, Push, Deploy</p>
+    </div>
+  </footer>
+
+  <script src="./main.js"></script>
+</body>
 </html>
